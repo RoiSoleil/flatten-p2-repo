@@ -14,5 +14,5 @@ runs:
         wget https://repo1.maven.org/maven2/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar
         wget https://repo1.maven.org/maven2/org/tukaani/xz/1.9/xz-1.9.jar
         ls
-        java -cp "${{ github.action_path }}/commons-io-2.15.1.jar;${{ github.action_path }}/xz-1.9.jar" FlattenP2Repo.java ${{ inputs.database_url }}
+        java -cp \"./*\" FlattenP2Repo.java ${{ inputs.database_url }}
       shell: bash
