@@ -4,9 +4,6 @@ inputs:
   repository_path:
     description: "The P2 repository path."
     required: true
-  output_path:
-    description: "The output path for the flatten P2 repository"
-    required: false
 runs:
   using: "composite"
   steps:
@@ -15,5 +12,5 @@ runs:
         cd ${{ github.action_path }}
         wget https://repo1.maven.org/maven2/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar
         wget https://repo1.maven.org/maven2/org/tukaani/xz/1.9/xz-1.9.jar
-        java -cp "commons-io-2.15.1.jar;xz-1.9.jar" FlattenP2Repo.java
+        java -cp "commons-io-2.15.1.jar;xz-1.9.jar" FlattenP2Repo.java ${{ inputs.database_url }}
       shell: bash
