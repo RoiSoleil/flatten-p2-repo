@@ -1,7 +1,30 @@
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.URI;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.util.Collections;
+import java.util.List;
+import java.util.jar.JarInputStream;
+import java.util.stream.Collectors;
+
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.file.PathUtils;
+import org.tukaani.xz.LZMA2Options;
+import org.tukaani.xz.XZOutputStream;
+
 public class FlattenP2Repo {
 
-  public static void main(String[] args) {
-   throws IOException {
+  public static void main(String[] args) throws IOException {
     Path baseDir = (args == null || args.length == 0) ? Path.of("") : Path.of(args[0]);
 
     Path originalRepo = baseDir.resolve("target").resolve("repository");
