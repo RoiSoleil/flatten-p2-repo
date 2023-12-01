@@ -1,0 +1,15 @@
+name: "Flatten P2 repository"
+description: "Flatten a P2 repository to being able to host with Github Releases."
+inputs:
+  repository_path:
+    description: "The P2 repository path."
+    required: true
+  output_path:
+    description: "The output path for the flatten P2 repository"
+    required: false
+runs:
+  using: "composite"
+  steps:
+      run: |
+        java Test.java
+      shell: bash
