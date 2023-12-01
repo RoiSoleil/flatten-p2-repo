@@ -8,5 +8,5 @@ runs:
   using: "composite"
   steps:
     - name: "Flattening P2 repository"
-      run: action.sh
+      run: ${{ github.action_path }}/action.sh
       shell: bash
