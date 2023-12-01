@@ -10,7 +10,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-      name: "Flattening P2 repository"
+    - name: "Flattening P2 repository"
       run: |
         java Test.java
       shell: bash
