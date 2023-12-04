@@ -25,9 +25,10 @@ import org.tukaani.xz.XZOutputStream;
 public class FlattenP2Repo {
 
   public static void main(String[] args) throws IOException {
-    Path baseDir = (args == null || args.length == 0) ? Path.of("") : Path.of(args[0]);
-
-    Path originalRepo = baseDir.resolve("target").resolve("repository");
+    if(args == null || args.length == 0) {
+      throw new IOException("💥 No repository specified");
+    }
+    Path originalRepo = Path.of(args[0]);
     System.out.println("🛠 flattening " + originalRepo.toAbsolutePath());
     Path flatRepo = originalRepo.resolveSibling("flat-repository");
     if (Files.exists(flatRepo)) {
