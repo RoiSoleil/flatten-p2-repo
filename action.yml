@@ -17,5 +17,5 @@ runs:
         export CLASSPATH=commons-io-2.15.1.jar:xz-1.9.jar
         ls
         java -version
-        java FlattenP2Repo ${{ github.workspace }}/${{ inputs.repository-path }}
+        java FlattenP2Repo.java ${{ github.workspace }}/${{ inputs.repository-path }}
       shell: bash
