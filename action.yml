@@ -7,11 +7,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: "Set up Java ☕️"
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '21'
     - name: "Flattening P2 repository"
       run: |
         ls
