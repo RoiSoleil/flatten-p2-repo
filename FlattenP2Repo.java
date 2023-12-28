@@ -13,7 +13,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.Collections;
-import java.util.List;
 import java.util.jar.JarInputStream;
 import java.util.stream.Collectors;
 
@@ -96,7 +95,7 @@ public class FlattenP2Repo {
   private static void createJar(Path artifactXml, Path flatRepo) throws IOException {
     Path artifactsJar = flatRepo.resolve("artifacts.jar").toAbsolutePath();
     var env = Collections.singletonMap("create", "true");// Create the zip file if it doesn't exist
-    URI uri = URI.create("jar:file:" + artifactsJar.toString().replace('\\', '/'));
+    URI uri = URI.create("jar:" + artifactsJar.toUri());
     try (FileSystem zipfs = FileSystems.newFileSystem(uri, env)) {
       Path pathInZipfile = zipfs.getPath("artifacts.xml");
       Files.copy(artifactXml, pathInZipfile, StandardCopyOption.REPLACE_EXISTING);
