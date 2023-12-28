@@ -16,6 +16,6 @@ runs:
         wget https://repo1.maven.org/maven2/org/tukaani/xz/1.9/xz-1.9.jar
         export CLASSPATH=commons-io-2.15.1.jar:xz-1.9.jar
         ls
-        java --version
+        java -version
         java FlattenP2Repo ${{ github.workspace }}/${{ inputs.repository-path }}
       shell: bash
